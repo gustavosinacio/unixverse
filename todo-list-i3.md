@@ -1,0 +1,3 @@
+- learn to save passwords here
+- configure bluetooth for keyboard and mouse
+- configure second display
