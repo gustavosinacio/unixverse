@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# This script should install programs listed on file 'install-programs'
+
+PROGRAMS_FILE="$I3_HOME/configs/programs/program-names"
+
+FILE_PATH=$(realpath $PROGRAMS_FILE)
+
+if [ -f $FILE_PATH ]; then
+
+  echo ""
+
+  while IFS= read -r program_name; do
+
+    if ! command -v "$program_name" &>/dev/null; then
+      echo "$BRIGHT_GREEN Installing $program_name..."
+      sudo apt install -y "$program_name"
+    else
+      echo -e "\t$BRIGHT_RED$program_name$RESET is already installed on this system"
+    fi
+
+  done <"$PROGRAMS_FILE"
+
+else
+  echo "File $BRIGHT_RED'$PROGRAMS_FILE' not found"
+fi

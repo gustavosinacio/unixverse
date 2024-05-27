@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Path to your image file
+IMAGE_PATH="$HOME/wallpapers/index.jpg"
+
+echo "running on $(date)" >$I3_HOME/log.txt
+
+# Set the wallpaper using feh
+feh --bg-fill "$IMAGE_PATH"
