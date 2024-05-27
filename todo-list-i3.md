@@ -1,3 +1,4 @@
 - learn to save passwords here
 - configure bluetooth for keyboard and mouse
 - configure second display
+- create a file to read lines, check if line is a installed program. If not, install it
