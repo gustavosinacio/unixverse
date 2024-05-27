@@ -18,10 +18,9 @@ ORIGIN_PATH=$(realpath $1) >/dev/null
 IS_LINK=$(readlink $2)
 
 if [ "$IS_LINK" = "$ORIGIN_PATH" ]; then
-  echo "\n\n\tThe path $1 is already a link to $2. Leaving...\n\n"
+  echo "\n\tPath --> $BRIGHT_GREEN$1$RESET is already a link to $BRIGHT_GREEN$2$RESET\n"
   exit 0
 fi
 
-echo "Linkin --> $ORIGIN_PATH <-- to ==> $2"
-echo "$2"
+echo "\n\tLink --> $BRIGHT_GREEN$ORIGIN_PATH$RESET to ==> $BLINK$BRIGHT_BLUE$2$RESET created sucessfully\n"
 ln -sf $ORIGIN_PATH $2

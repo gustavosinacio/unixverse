@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -la'
+alias l='ls -CF'
+alias gst='git status'
+alias gco='git checkout'
