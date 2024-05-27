@@ -3,17 +3,22 @@
 # ORIGIN_PATH = $1
 # DESTINATION_PATH = $2
 
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Error: paths not specified"
+  echo "Usage: link-files path/to/origin path/to/destination"
+  exit 1
+fi
+
 if [ ! -f $1 ]; then
   echo "file $1 not found"
   exit 1
 fi
 
 ORIGIN_PATH=$(realpath $1) >/dev/null
-
 IS_LINK=$(readlink $2)
 
 if [ "$IS_LINK" = "$ORIGIN_PATH" ]; then
-  echo -e "\n\n\tThe path is already a link to the origin. Leaving...\n\n"
+  echo "\n\n\tThe path $1 is already a link to $2. Leaving...\n\n"
   exit 0
 fi
 

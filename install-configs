@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sh $I3_HOME/link-files $I3_HOME/configs/i3.config $HOME/.config/i3/config
+sh $I3_HOME/link-files $I3_HOME/configs/zshrc $HOME/.zshrc
