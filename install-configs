@@ -3,6 +3,7 @@
 # Create an array with my link pairs
 configs=(
   "$I3_HOME/configs/i3.config $HOME/.config/i3/config"
+  "$I3_HOME/configs/i3blocks.config $HOME/.config/i3blocks/config"
   "$I3_HOME/configs/zshrc $HOME/.zshrc"
   "$I3_HOME/configs/.gitconfig $HOME/.gitconfig"
   "$I3_HOME/configs/rc.conf $HOME/.config/ranger/rc.conf"
