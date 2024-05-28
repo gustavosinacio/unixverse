@@ -2,7 +2,8 @@
 
 # This script should install programs listed on file 'install-programs'
 
-PROGRAMS_FILE="$I3_HOME/configs/programs/program-names"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROGRAMS_FILE="$SCRIPT_DIR/program-names"
 
 FILE_PATH=$(realpath $PROGRAMS_FILE)
 

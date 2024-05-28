@@ -3,8 +3,9 @@
 # Create an array with my link pairs
 configs=(
   "$I3_HOME/configs/i3.config $HOME/.config/i3/config"
-  "$I3_HOME/configs/rc.conf $HOME/.config/ranger/rc.conf"
   "$I3_HOME/configs/zshrc $HOME/.zshrc"
+  "$I3_HOME/configs/.gitconfig $HOME/.gitconfig"
+  "$I3_HOME/configs/rc.conf $HOME/.config/ranger/rc.conf"
   "$I3_HOME/configs/aliases $HOME/.aliases"
   "$I3_HOME/configs/colors $HOME/.colors"
 )
@@ -12,8 +13,8 @@ configs=(
 # Iterate through that array and pass pair to the script
 # Seeing as my script takes in the pair in the same format written above,
 # no parsing is necessary
-for pair in "${configs[@]}"; do
-  sh $I3_HOME/link-files $pair
-done
+echo ""
 
-zsh -c "source $HOME/.zshrc"
+for pair in "${configs[@]}"; do
+  sh $I3_HOME/scripts/link-files $pair
+done

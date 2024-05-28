@@ -1,3 +1,4 @@
 #!/bin/bash
 
 $I3_HOME/install-configs
+$I3_HOME/programs/install-programs

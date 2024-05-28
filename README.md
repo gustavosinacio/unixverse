@@ -2,6 +2,10 @@
 
 ediftark
 
+# Starting
+
+Run script `install` to setup your environment
+
 # TO DO List
 
 - create a file to read lines, check if line is a installed program. If not, install it
