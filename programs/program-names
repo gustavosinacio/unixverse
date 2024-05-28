@@ -5,6 +5,6 @@ feh
 i3status
 i3lock
 dmenu
-exa
+eza
+notify-send libnotify-bin
 i3blocks
-libnotify-bin

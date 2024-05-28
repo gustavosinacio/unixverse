@@ -9,15 +9,16 @@ FILE_PATH=$(realpath $PROGRAMS_FILE)
 
 if [ -f $FILE_PATH ]; then
 
-  echo ""
-
   while IFS= read -r program_name; do
 
-    if ! command -v "$program_name" &>/dev/null; then
-      echo -e "\n$BRIGHT_GREEN\tInstalling $program_name$RESET...\n"
-      sudo apt install -y "$program_name"
+    command=$(echo "$program_name" | cut -d " " -f 1)
+    lib=$(echo "$program_name" | cut -d " " -f 2)
+
+    if ! command -v "$command" &>/dev/null; then
+      echo -e "\n$BRIGHT_GREEN\tInstalling $lib$RESET...\n"
+      sudo apt install -y "$lib"
     else
-      echo -e "\t$BRIGHT_RED$program_name$RESET is already installed on this system"
+      echo -e "\t$BRIGHT_RED$lib$RESET is already installed on this system"
     fi
 
   done <"$PROGRAMS_FILE"
