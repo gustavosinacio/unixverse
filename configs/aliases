@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Files, finder ----------------------------------------------------------------
-# alias ls='exa'
+alias ls='exa --git'
 alias ll='exa --long --header --git --icons'
 alias la='exa --long --header --git --icons --all'
 
