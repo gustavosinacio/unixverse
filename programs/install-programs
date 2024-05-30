@@ -1,28 +1,70 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
 # This script should install programs listed on file 'install-programs'
-
+# ---------------------------------------------------------------------------
+# My Variables
+# ---------------------------------------------------------------------------
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROGRAMS_FILE="$SCRIPT_DIR/program-names"
 
 FILE_PATH=$(realpath $PROGRAMS_FILE)
 
+
+echo "This program will attempt to install all these programs:"
+
+echo -e "$BRIGHT_GREEN"
+cat $FILE_PATH
+echo -e "$RESET"
+
+# read -p "Installation will proceed without further confirmations. Do you want to continue?(Y/n) " user_input
+# [[ "$user_input" != "y" ]] && [[ "$user_input" != "Y" ]] && echo "Exiting program" && exit 0
+
+# ---------------------------------------------------------------------------
+# Suported installers 
+# ---------------------------------------------------------------------------
+INSTALLERS=(
+  "pacman"
+  "apt"
+)
+
+# ---------------------------------------------------------------------------
+# Declaring an associative array so i can store used flags for each installer
+# ---------------------------------------------------------------------------
+declare -A INSTALLERS_FLAGS
+
+INSTALLERS_FLAGS["pacman"]="-S --noconfirm"
+INSTALLERS_FLAGS["apt"]="install" #apt
+
+# ---------------------------------------------------------------------------
+# Find which installer is available
+# ---------------------------------------------------------------------------
+for option in "${INSTALLERS[@]}"; do
+  if command -v "$option" &>/dev/null; then
+    INSTALLER=$option
+    break
+  fi
+done
+FLAGS="${INSTALLERS_FLAGS[$option]}"
+
+# ---------------------------------------------------------------------------
+# Iterate through programs and install
+# ---------------------------------------------------------------------------
 if [ -f $FILE_PATH ]; then
-
   while IFS= read -r program_name; do
-
     command=$(echo "$program_name" | cut -d " " -f 1)
     lib=$(echo "$program_name" | cut -d " " -f 2)
 
     if ! command -v "$command" &>/dev/null; then
       echo -e "\n$BRIGHT_GREEN\tInstalling $lib$RESET...\n"
-      sudo apt install -y "$lib"
+      sudo $INSTALLER $FLAGS "$lib"
     else
       echo -e "\t$BRIGHT_RED$lib$RESET is already installed on this system"
     fi
 
   done <"$PROGRAMS_FILE"
-
 else
   echo "File $BRIGHT_RED'$PROGRAMS_FILE' not found"
 fi
+# ---------------------------------------------------------------------------
+

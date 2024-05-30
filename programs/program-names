@@ -8,3 +8,5 @@ dmenu
 eza
 notify-send libnotify-bin
 i3blocks
+neofetch
+zsh
