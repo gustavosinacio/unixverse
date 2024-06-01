@@ -5,11 +5,16 @@
 # ---------------------------------------------------------------------------
 # My Variables
 # ---------------------------------------------------------------------------
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROGRAMS_FILE="$SCRIPT_DIR/program-names"
 
 FILE_PATH=$(realpath $PROGRAMS_FILE)
+LOG_FILE="$SCRIPT_DIR/install.log"
 
+echo "---------------------------------------------------------------------------"| tee -a "$LOG_FILE"
+echo "    Installation started at $(date)" | tee -a "$LOG_FILE"
+echo "---------------------------------------------------------------------------"| tee -a "$LOG_FILE"
 
 echo "This program will attempt to install all these programs:"
 
@@ -51,20 +56,25 @@ FLAGS="${INSTALLERS_FLAGS[$option]}"
 # Iterate through programs and install
 # ---------------------------------------------------------------------------
 if [ -f $FILE_PATH ]; then
-  while IFS= read -r program_name; do
-    command=$(echo "$program_name" | cut -d " " -f 1)
-    lib=$(echo "$program_name" | cut -d " " -f 2)
+	while IFS= read -r line; do
+    	  	program=$(echo "$line" | sed 's/#.*//' | xargs)
 
-    if ! command -v "$command" &>/dev/null; then
-      echo -e "\n$BRIGHT_GREEN\tInstalling $lib$RESET...\n"
-      sudo $INSTALLER $FLAGS "$lib"
-    else
-      echo -e "\t$BRIGHT_RED$lib$RESET is already installed on this system"
-    fi
+		echo -e "\n$BRIGHT_GREEN\tInstalling $program$RESET...\n"
 
-  done <"$PROGRAMS_FILE"
+		if sudo $INSTALLER $FLAGS "$program"; then
+        		echo -e "\t$program installed successfully" | tee -a "$LOG_FILE"
+    		else
+        		echo -e "Failed to install $program" | tee -a "$LOG_FILE"
+    		fi
+
+
+
+	done <"$PROGRAMS_FILE"
 else
-  echo "File $BRIGHT_RED'$PROGRAMS_FILE' not found"
+	echo "File $BRIGHT_RED'$PROGRAMS_FILE' not found"
 fi
 # ---------------------------------------------------------------------------
-
+#
+echo "---------------------------------------------------------------------------"| tee -a "$LOG_FILE"
+echo "     Installation ended at $(date)" | tee -a "$LOG_FILE"
+echo "---------------------------------------------------------------------------" | tee -a "$LOG_FILE"

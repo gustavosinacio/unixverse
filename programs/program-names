@@ -1,12 +1,22 @@
-git
-ranger
-alacritty
-feh
+git			# whell...
+ranger			# best file manager on terminal
+alacritty		# better terminal
+feh			# image previews in ranger
 i3status
 i3lock
 dmenu
-eza
-notify-send libnotify-bin
 i3blocks
-neofetch
-zsh
+neofetch		# system information
+zsh			# modern terminal
+neovim			# terminal editor
+tldr			# Commands cheat sheet
+fzf			# fuzzy finder
+curl			# execute requests
+htop			# cli task manager
+fd			# alternative to find command
+ripgrep			# better grep
+bat			# better cat
+lsd			# better ls
+eza			# also better ls
+tree-sitter		# syntax hightlight for neovim
+tree-sitter-cli		# syntax hightlight for neovim
