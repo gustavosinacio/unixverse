@@ -6,7 +6,8 @@ export I3_HOME=$(dirname "$(realpath "$0")")
 source $I3_HOME/configs/colors
 
 $I3_HOME/install-configs
-$I3_HOME/programs/install-programs
+$I3_HOME/scripts/programs/install-programs
+$I3_HOME/scripts/zsh/install-zsh-plugins
 
 # if command -v notify-send; then
 # notify-send "User Config" "User environment updated"

@@ -52,6 +52,10 @@ for option in "${INSTALLERS[@]}"; do
 done
 FLAGS="${INSTALLERS_FLAGS[$option]}"
 
+if [ $INSTALLER eq "$pacman" ]; then
+	$INSTALLER -Syu
+fi
+
 # ---------------------------------------------------------------------------
 # Iterate through programs and install
 # ---------------------------------------------------------------------------

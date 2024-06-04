@@ -70,7 +70,18 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+
+# Adding zsh completions
+#
+[ -d ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src ] && fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+plugins=(
+	git
+	zsh-autosuggestions
+)
+
+# This is done so the syntax-highlight is the last plugin loaded
+plugins+=( F-Sy-H )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,3 +110,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+[ -f $HOME/.aliases ] && source $HOME/.aliases
+[ -f $HOME/.colors ] && source $HOME/.colors

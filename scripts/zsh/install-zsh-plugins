@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Install oh my zsh ----------------------------------------------
+
+if [ ! -d $ZSH ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+  echo -e "$BRIGHT_GREEN\tzsh is already installed$RESET"
+fi
+
+if [ ! -d ${ZSH}/custom/plugins/zsh-autosuggestions ]; then
+  echo -e "$BRIGHT_GREEN\tInstalling zsh-autosuggestions$RESET"
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git \
+    ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
+if [ ! -d ${ZSH}/custom/plugins/F-Sy-H ]; then
+	echo -e "$BRIGHT_GREEN\tInstalling F-Sy-H (Fast syntax highlight by dharma) $RESET"
+  git clone https://github.com/z-shell/F-Sy-H.git \
+    ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
+fi
+
+if [ ! -d $ZSH/custom/plugins/zsh-autocomplete ]; then
+  # echo -e "$BRIGHT_GREEN\tInstalling zsh-autocomplete$RESET"
+  echo ""
+fi
+
+if [ ! -d ${ZSH}/custom/plugins/zsh-completions ]; then
+  echo -e "$BRIGHT_GREEN\tInstalling zsh-completions$RESET"
+  git clone https://github.com/zsh-users/zsh-completions \
+    ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+fi
+
+
+# Missing ---
+# zsh-autocomplete
+# add: 
+#   cd to repo -> pull
+# to update plugin
