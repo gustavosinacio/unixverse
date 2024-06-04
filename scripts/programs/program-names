@@ -17,3 +17,4 @@ gvim                    # terminal editor
 zsh-autocomplete        # autocomplete for zsh
 archlinux-keyring       # keyring for archlinux
 ttf-jetbrains-mono-nerd # nerd font from jetbrains
+hyprpaper               # nerd font from jetbrains
