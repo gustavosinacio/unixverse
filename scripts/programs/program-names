@@ -1,25 +1,19 @@
-git			# whell...
-ranger			# best file manager on terminal
-alacritty		# better terminal
-feh			# image previews in ranger
-i3status
-i3lock
-dmenu
-i3blocks
-neofetch		# system information
-zsh			# modern terminal
-neovim			# terminal editor
-tldr			# Commands cheat sheet
-fzf			# fuzzy finder
-curl			# execute requests
-htop			# cli task manager
-fd			# alternative to find command
-ripgrep			# better grep
-bat			# better cat
-lsd			# better ls
-eza			# also better ls
-tree-sitter		# syntax hightlight for neovim
-tree-sitter-cli		# syntax hightlight for neovim
-zsh-autocomplete	# autocomplete for zsh
-archlinux-keyring	# keyring for archlinux
+git                     # whell...
+ranger                  # best file manager on terminal
+alacritty               # better terminal
+feh                     # image previews in ranger
+neofetch                # system information
+zsh                     # modern terminal
+tldr                    # Commands cheat sheet
+fzf                     # fuzzy finder
+curl                    # execute requests
+htop                    # cli task manager
+fd                      # alternative to find command
+ripgrep                 # better grep
+bat                     # better cat
+lsd                     # better ls
+eza                     # also better ls
+gvim                    # terminal editor
+zsh-autocomplete        # autocomplete for zsh
+archlinux-keyring       # keyring for archlinux
 ttf-jetbrains-mono-nerd # nerd font from jetbrains
