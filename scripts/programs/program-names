@@ -21,3 +21,5 @@ eza			# also better ls
 tree-sitter		# syntax hightlight for neovim
 tree-sitter-cli		# syntax hightlight for neovim
 zsh-autocomplete	# autocomplete for zsh
+archlinux-keyring	# keyring for archlinux
+ttf-jetbrains-mono-nerd # nerd font from jetbrains

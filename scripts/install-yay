@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo ""
+
+if [ -z "$(command -v yay)" ]; then
+  # YAY not found, install
+  git clone https://aur.archlinux.org/yay.git $HOME/yay
+  cd $HOME/yay
+  makepkg -si
+  rm -rf $HOME/yay
+  echo -e "\t[WARNING] Cloned repo has been removed"
+else
+  # YAY found
+  echo -e "\tYAY is already installed"
+  printf '%*s\n' "$(tput cols)" '' | tr ' ' ─
+fi
+
+echo ""
+
+# install wallpaper util
+# remove printing from packages install
+# install status bar
+# install node version manager

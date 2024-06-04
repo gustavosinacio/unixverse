@@ -65,7 +65,7 @@ if [ -f $FILE_PATH ]; then
 
 		echo -e "\n$BRIGHT_GREEN\tInstalling $program$RESET...\n"
 
-		if sudo $INSTALLER $FLAGS "$program"; then
+		if sudo $INSTALLER $FLAGS "$program" &> /dev/null; then
         		echo -e "\t$program installed successfully" | tee -a "$LOG_FILE"
     		else
         		echo -e "Failed to install $program" | tee -a "$LOG_FILE"
