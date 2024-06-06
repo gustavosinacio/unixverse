@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 configs=(
   # "$I3_HOME/configs/i3.config $HOME/.config/i3/config"
   # "$I3_HOME/configs/i3blocks.config $HOME/.config/i3blocks/config"
-  "$SCRIPT_DIR/configs/zshrc $HOME/.zshrc"
+  "$SCRIPT_DIR/configs/zsh/zshrc $HOME/.zshrc"
   "$SCRIPT_DIR/configs/gitconfig $HOME/.gitconfig"
   "$SCRIPT_DIR/configs/rc.conf $HOME/.config/ranger/rc.conf"
   "$SCRIPT_DIR/configs/kitty $HOME/.config/kitty/kitty.conf"

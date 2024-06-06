@@ -2,38 +2,69 @@
 
 # Install oh my zsh ----------------------------------------------
 
-if [ ! -d $ZSH ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo -e ""
+
+# ------------------------------------------------------------------------------
+if [ -d $ZSH ]; then
+  echo -e "$BRIGHT_GREEN\toh-my-zsh is already installed\t$RESET"
 else
-  echo -e "$BRIGHT_GREEN\tzsh is already installed$RESET"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-if [ ! -d ${ZSH}/custom/plugins/zsh-autosuggestions ]; then
-  echo -e "$BRIGHT_GREEN\tInstalling zsh-autosuggestions$RESET"
-  git clone https://github.com/zsh-users/zsh-autosuggestions.git \
+# ------------------------------------------------------------------------------
+if [ -d ${ZSH}/custom/plugins/zsh-autosuggestions ]; then
+  echo -e "$BRIGHT_YELLOW\tzsh-autosuggestions already installed\t$RESET"
+else
+  echo -e "$BRIGHT_GREEN\tInstalling zsh-autosuggestions\t$RESET"
+  git clone --depth 1 -- https://github.com/zsh-users/zsh-autosuggestions \
     ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
 
-if [ ! -d ${ZSH}/custom/plugins/F-Sy-H ]; then
-	echo -e "$BRIGHT_GREEN\tInstalling F-Sy-H (Fast syntax highlight by dharma) $RESET"
-  git clone https://github.com/z-shell/F-Sy-H.git \
+# ------------------------------------------------------------------------------
+if [ -d ${ZSH}/custom/plugins/F-Sy-H ]; then
+  echo -e "$BRIGHT_YELLOW\tF-Sy-H already installed\t$RESET"
+else
+  echo -e "$BRIGHT_GREEN\tInstalling F-Sy-H (Fast syntax highlight by dharma)\t$RESET"
+  git clone --depth 1 -- https://github.com/z-shell/F-Sy-H.git \
     ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
 fi
 
-if [ ! -d $ZSH/custom/plugins/zsh-autocomplete ]; then
-  # echo -e "$BRIGHT_GREEN\tInstalling zsh-autocomplete$RESET"
-  echo ""
+# ------------------------------------------------------------------------------
+if [ -d $ZSH/custom/plugins/zsh-autocomplete ]; then
+  echo -e "$BRIGHT_YELLOW\tzsh-autocomplete already installed\t$RESET"
+else
+  echo -e "$BRIGHT_GREEN\tInstalling zsh-autocomplete\t$RESET"
 fi
 
-if [ ! -d ${ZSH}/custom/plugins/zsh-completions ]; then
-  echo -e "$BRIGHT_GREEN\tInstalling zsh-completions$RESET"
-  git clone https://github.com/zsh-users/zsh-completions \
+# ------------------------------------------------------------------------------
+if [ -d ${ZSH}/custom/plugins/zsh-completions ]; then
+  echo -e "$BRIGHT_YELLOW\tzsh-completions already installed\t$RESET"
+else
+  echo -e "$BRIGHT_GREEN\tInstalling zsh-completions\t$RESET"
+  git clone --depth 1 -- https://github.com/zsh-users/zsh-completions \
     ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 fi
 
+# ------------------------------------------------------------------------------
+INSTALL_FOLDER=$ZSH/custom/themes/powerlevel10k
+echo -e "\tInstalling into $INSTALL_FOLDER"
+if [ -d $INSTALL_FOLDER ]; then
+  echo -e "$BRIGHT_YELLOW\tzsh-completions already installed\t$RESET"
+else
+  echo -e "$BRIGHT_GREEN\tInstalling powerlevel10k theme\t$RESET"
+  git clone --depth 1 https://github.com/romkatv/powerlevel10k.git $INSTALL_FOLDER
+fi
+# ------------------------------------------------------------------------------
+
+if [ -f $HOME/.zshrc.pre-oh-my-zsh ]; then
+  rm $HOME/.zshrc
+  mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
+fi
+
+echo ""
 
 # Missing ---
 # zsh-autocomplete
-# add: 
+# add:
 #   cd to repo -> pull
 # to update plugin
