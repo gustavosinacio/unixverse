@@ -8,7 +8,6 @@ if filereadable(expand('$VIMRUNTIME/defaults.vim'))
     source $VIMRUNTIME/defaults.vim
 endif
 
-
 set number
 
 unlet! skip_defaults_vim

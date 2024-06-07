@@ -45,3 +45,5 @@ alias watchman-res="watchman watch-del $(pwd); watchman watch-project $(pwd)"
 alias r="ranger"
 
 alias echo="echo -e"
+
+alias gw='cd ~/workhub'

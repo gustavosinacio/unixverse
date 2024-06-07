@@ -13,7 +13,7 @@ ripgrep                 # better grep
 bat                     # better cat
 lsd                     # better ls
 eza                     # also better ls
-gvim                    # terminal editor
+nvim                    # the best terminal editor
 zsh-autocomplete        # autocomplete for zsh
 archlinux-keyring       # keyring for archlinux
 ttf-jetbrains-mono-nerd # nerd font from jetbrains
