@@ -1,7 +1,7 @@
+base-devel              # basic evelopment libs
+pkgfile                 # search for lib that owns the command
 git                     # whell...
 ranger                  # best file manager on terminal
-alacritty               # better terminal
-feh                     # image previews in ranger
 neofetch                # system information
 zsh                     # modern terminal
 tldr                    # Commands cheat sheet
@@ -17,6 +17,4 @@ nvim                    # the best terminal editor
 zsh-autocomplete        # autocomplete for zsh
 archlinux-keyring       # keyring for archlinux
 ttf-jetbrains-mono-nerd # nerd font from jetbrains
-hyprpaper               # nerd font from jetbrains
-base-devel
 

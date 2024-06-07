@@ -7,7 +7,7 @@
 # ---------------------------------------------------------------------------
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROGRAMS_FILE="$SCRIPT_DIR/program-names"
+PROGRAMS_FILE=$1
 
 FILE_PATH=$(realpath $PROGRAMS_FILE)
 LOG_FILE="$SCRIPT_DIR/install.log"
