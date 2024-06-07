@@ -5,12 +5,6 @@
 echo -e ""
 
 # ------------------------------------------------------------------------------
-if [ -d $ZSH ]; then
-  echo -e "$BRIGHT_GREEN\toh-my-zsh is already installed\t$RESET"
-else
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
 # ------------------------------------------------------------------------------
 if [ -d ${ZSH}/custom/plugins/zsh-autosuggestions ]; then
   echo -e "$BRIGHT_YELLOW\tzsh-autosuggestions already installed\t$RESET"
