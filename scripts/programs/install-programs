@@ -9,6 +9,8 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROGRAMS_FILE=$1
 
+[ -z "$1" ] && echo "usage: $0 [file with program names]" && exit 1
+
 FILE_PATH=$(realpath $PROGRAMS_FILE)
 LOG_FILE="$SCRIPT_DIR/install.log"
 
@@ -19,7 +21,7 @@ echo "--------------------------------------------------------------------------
 echo "This program will attempt to install all these programs:"
 
 echo -e "$BRIGHT_GREEN"
-cat $FILE_PATH
+bat $FILE_PATH
 echo -e "$RESET"
 
 # read -p "Installation will proceed without further confirmations. Do you want to continue?(Y/n) " user_input

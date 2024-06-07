@@ -1,5 +1,4 @@
-include ~/.config/HyprV/kitty/mocha.conf
-font_family      jetbrains mono nerd font
+font_family      MesloLGS NF
 font_size        13
 bold_font        auto
 italic_font      auto
@@ -11,8 +10,55 @@ url_style        dotted
 
 # Close the terminal without confirmation
 confirm_os_window_close 0
-# background_opacity 0.8
+background_opacity 0.95
 
 # Maps
 map alt+c copy_to_clipboard
-map alt+v paste_from_clipboard
+map alt+v paste_from_clipboar
+
+
+map f5 launch --location=hsplit
+
+# Create a new window splitting the space used by the existing one so that
+# the two windows are placed side by side
+map f6 launch --location=vsplit
+
+# Create a new window splitting the space used by the existing one so that
+# the two windows are placed side by side if the existing window is wide or
+# one above the other if the existing window is tall.
+map f4 launch --location=split
+
+
+# Create a new window splitting the space used by the existing one so that
+# the two windows are placed side by side if the existing window is wide or
+# one above the other if the existing window is tall.
+map f4 launch --location=split
+
+# Rotate the current split, changing its split axis from vertical to
+# horizontal or vice versa
+map f7 layout_action rotate
+
+# Move the active window in the indicated direction
+map shift+up move_window up
+map shift+left move_window left
+map shift+right move_window right
+map shift+down move_window down
+
+# Move the active window to the indicated screen edge
+map ctrl+shift+up layout_action move_to_screen_edge top
+map ctrl+shift+left layout_action move_to_screen_edge left
+map ctrl+shift+right layout_action move_to_screen_edge right
+map ctrl+shift+down layout_action move_to_screen_edge bottom
+
+# Switch focus to the neighboring window in the indicated direction
+map ctrl+left neighboring_window left
+map ctrl+right neighboring_window right
+map ctrl+up neighboring_window up
+map ctrl+down neighboring_window down
+
+map ctrl+home resize_window reset
+map ctrl+left resize_window narrower
+map ctrl+right resize_window wider
+map ctrl+up resize_window taller
+map ctrl+down resize_window shorter 3
+
