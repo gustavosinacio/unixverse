@@ -1,7 +1,4 @@
-#!/bin/bash
-
-# ORIGIN_PATH = $1
-# DESTINATION_PATH = $2
+echo "|$1| |$2|" 
 
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo -e "Error: paths not specified"

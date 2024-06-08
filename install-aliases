@@ -1,0 +1,21 @@
+#!/bin/bash
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Create an array with my link pairs
+configs=(
+  "$SCRIPT_DIR/configs/gitconfig $HOME/.gitconfig"
+  "$SCRIPT_DIR/configs/aliases $HOME/.aliases"
+  "$SCRIPT_DIR/configs/colors $HOME/.colors"
+)
+
+# Iterate through that array and pass pair to the script
+# Seeing as my script takes in the pair in the same format written above,
+# no parsing is necessary
+echo ""
+
+for pair in "${configs[@]}"; do
+  sh $SCRIPT_DIR/scripts/link-files $pair
+done
+
+

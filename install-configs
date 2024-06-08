@@ -1,26 +1,19 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# Create necessary folders if they don't exist
 HOME_CONFIG=$HOME/.config
-
-mkdir -p $HOME_CONFIG/nvim/lua
 
 # Create an array with my link pairs
 configs=(
   # "$I3_HOME/configs/i3.config $HOME_CONFIG/i3/config"
   # "$I3_HOME/configs/i3blocks.config $HOME_CONFIG/i3blocks/config"
   # "$SCRIPT_DIR/configs/kitty $HOME_CONFIG/kitty/kitty.conf"
-  "$SCRIPT_DIR/configs/rc.conf $HOME_CONFIG/ranger/rc.conf"
   # "$SCRIPT_DIR/configs/hypr/hyprland.conf $HOME_CONFIG/hypr/hyprland.conf"
   # "$SCRIPT_DIR/configs/hypr/hyprpaper $HOME_CONFIG/hypr/hyprpaper.conf"
   # "$SCRIPT_DIR/configs/hypr/hyprlock $HOME_CONFIG/hypr/hyprlock.conf"
+  "$SCRIPT_DIR/configs/ranger $HOME_CONFIG"
   "$SCRIPT_DIR/configs/nvim $HOME_CONFIG"
   "$SCRIPT_DIR/configs/zsh/zshrc $HOME/.zshrc"
-  "$SCRIPT_DIR/configs/gitconfig $HOME/.gitconfig"
-  "$SCRIPT_DIR/configs/aliases $HOME/.aliases"
-  "$SCRIPT_DIR/configs/colors $HOME/.colors"
 )
 
 # Iterate through that array and pass pair to the script
