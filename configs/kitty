@@ -62,3 +62,8 @@ map ctrl+right resize_window wider
 map ctrl+up resize_window taller
 map ctrl+down resize_window shorter 3
 
+
+# Remaps to no_op
+map ctrl+shift+t no_op
+map super+shift+b no_op
+
