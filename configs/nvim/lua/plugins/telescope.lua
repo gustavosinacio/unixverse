@@ -11,9 +11,11 @@ return {
         }
       }
 
+      print(myOS, mainMod)
+
       local builtin = require("telescope.builtin")
-      vim.keymap.set('n', '<D-p>', builtin.find_files, {})
-      vim.keymap.set('n', '<D-f>', builtin.live_grep, {}) -- Map Cmd-Shift-F to live_grep
+      vim.keymap.set('n', '<'..mainMod..'-p>', builtin.find_files, {})
+      vim.keymap.set('n', '<'..mainMod..'-f>', builtin.live_grep, {})
     end
   }
 

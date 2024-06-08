@@ -1,8 +1,6 @@
 -- Additional Keybindings
 
-local myOS = vim.loop.os_uname().sysname
-
-mainMod = nil
+myOS = vim.loop.os_uname().sysname
 
 if myOS == "Darwin" then
   mainMod = 'D'
@@ -10,7 +8,6 @@ else
   mainMod = 'A'
 end
 
-print(myOS, mainMod)
 
 vim.keymap.set('n', '<'..mainMod..'-l><'..mainMod..'-l>', ':Lazy<CR>', {})
 vim.keymap.set('i', '<'..mainMod..'-l><D-l>', ':Lazy<CR>', {})
@@ -42,9 +39,3 @@ vim.keymap.set('n', '<leader>k', 'O<Esc>', { noremap = true, silent = true })
 -- Move lines up and down
 vim.keymap.set('n', '<'..mainMod..'-j>', 'ddp', {})
 vim.keymap.set('n', '<'..mainMod..'-J>', 'ddkkp', {})
-
-
--- local builtin = require("telescope.builtin")
--- vim.keymap.set('n', '<D-p>', builtin.find_files, {})
--- vim.keymap.set('n', '<D-f>', builtin.live_grep, {}) -- Map Cmd-Shift-F to live_grep
-

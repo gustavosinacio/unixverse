@@ -1,5 +1,3 @@
-echo "|$1| |$2|" 
-
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo -e "Error: paths not specified"
   echo -e "Usage: link-files path/to/origin path/to/destination"

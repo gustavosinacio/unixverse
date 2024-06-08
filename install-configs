@@ -22,5 +22,5 @@ configs=(
 echo ""
 
 for pair in "${configs[@]}"; do
-  sh $SCRIPT_DIR/scripts/link-files $pair
+  sh $SCRIPT_DIR/scripts/link-files.sh $pair
 done
