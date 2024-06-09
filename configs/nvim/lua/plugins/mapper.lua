@@ -1,31 +1,17 @@
-return {}
--- return { "gregorias/nvim-mapper",
---   dependencies = "nvim-telescope/telescope.nvim",
---   config = function()
---     require"nvim-mapper".setup({
---       -- do not assign the default keymap (<leader>MM)
---       no_map = false,
---       -- where should ripgrep look for your keybinds definitions.
---       -- Default config search path is ~/.config/nvim/lua
---       search_path = os.getenv("HOME") .. "/.config/nvim/lua",
---       -- what should be done with the selected keybind when pressing enter.
---       -- Available actions:
---       --   * "definition" - Go to keybind definition (default)
---       --   * "execute" - Execute the keybind command
---       action_on_enter = "definition",
---     })
---
---     require("telescope").load_extension("mapper")
---
---     Mapper = require("nvim-mapper")
---     Mapper.map({ "i", "s" }, '<C-a>', function()
---                if ls.expand_or_jumpable() then
---                ls.expand_or_jump(1)
---              end
---            end, {silent = true}, "Snippets", "snippet_jump_or_expand",
---            "Expand or jump to next snippet placeholder")
---
--- 
---
---   end
--- }
+return {
+  "lazytanuki/nvim-mapper",
+  config = function()
+    require("nvim-mapper").setup({
+      no_map = false,
+      -- where should ripgrep look for your keybinds definitions.
+      -- Default config search path is ~/.config/nvim/lua
+      search_path = os.getenv("HOME") .. "i3life/configs/nvim/lua",
+      -- what should be done with the selected keybind when pressing enter.
+      -- Available actions:
+      --   * "definition" - Go to keybind definition (default)
+      --   * "execute" - Execute the keybind command
+      action_on_enter = "definition",
+    })
+  end,
+  before = "telescope.nvim",
+}
