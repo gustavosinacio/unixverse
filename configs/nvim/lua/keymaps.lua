@@ -25,7 +25,8 @@ vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>', { noremap = true, silent = true })  
 vim.keymap.set('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })    -- Quit with Leader + q
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>', { noremap = true, silent = true }) -- Clear search highlight with Leader + h
 
-vim.keymap.set('n', '<'..MainMod..'-b>', ':Neotree toggle<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>e', ':Neotree focus<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>E', ':Neotree close<CR>', { noremap = true, silent = true })
 
 
 -- adds mapping for creating new lines above and beneath while in the middle of the line
@@ -40,4 +41,3 @@ vim.keymap.set('n', '<'..MainMod..'-j>', 'ddp', {})
 vim.keymap.set('n', '<'..MainMod..'-k>', 'ddkkp', {})
 vim.keymap.set('i', '<'..MainMod..'-j>', '<Esc>ddpa', {})
 vim.keymap.set('i', '<'..MainMod..'-k>', '<Esc>ddkkpa', {})
-
