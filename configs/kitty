@@ -10,7 +10,7 @@ url_style        dotted
 
 # Close the terminal without confirmation
 confirm_os_window_close 0
-background_opacity 0.95
+# background_opacity 0.95
 
 # Maps
 map alt+c copy_to_clipboard
@@ -67,3 +67,7 @@ map ctrl+down resize_window shorter 3
 map ctrl+shift+t no_op
 map super+shift+b no_op
 
+
+background_image ~/i3life/configs/wall.png
+background_image_layout cscaled
+background_tint 0.99
