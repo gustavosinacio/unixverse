@@ -32,29 +32,41 @@ return {
           ["<C-e>"] = cmp.mapping.abort(),
           -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
-          -- ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              local entries = cmp.get_entries()
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+
+              if entries == 1 then
+                cmp.confirm()
+              end
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
           {
             name = "nvim_lsp",
-            entry_filter = function(entry, ctx)
+            -- Dont suggest Text from nvm_lsp
+            entry_filter = function(entry)
               return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
             end,
           },
           { name = "luasnip" },
-          -- Dont suggest Text from nvm_lsp
         }, {}),
       })
 
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          { name = "cmdline" },
-        }),
-        matching = { disallow_symbol_nonprefix_matching = false },
-      })
+      ---- Enabling this disables the tab completion on the command line
+      -- cmp.setup.cmdline(":", {
+      --   mapping = cmp.mapping.preset.cmdline(),
+      --   sources = cmp.config.sources({
+      --     { name = "path" },
+      --   }, {
+      --     { name = "cmdline" },
+      --   }),
+      --   matching = { disallow_symbol_nonprefix_matching = false },
+      -- })
     end,
   },
 }
