@@ -19,8 +19,8 @@ vim.keymap.set("n", "<leader>gc", ":DiffviewClose<CR>", {})
 
 vim.keymap.set("n", "<leader>s", ":w<CR>", { noremap = true, silent = true }) -- Save
 vim.keymap.set("n", "<leader>as", ":wa<CR>", { noremap = true, silent = true }) -- Save
-vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true }) -- Save
-vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { noremap = true, silent = true }) -- Save
+vim.keymap.set("n", MainMod .. "s>", ":w<CR>", { noremap = true, silent = true }) -- Save
+vim.keymap.set("i", MainMod .. "s>", "<Esc>:w<CR>", { noremap = true, silent = true }) -- Save
 
 vim.keymap.set("n", "<leader>q", ":q<CR>", { noremap = true, silent = true }) -- Quit with Leader + q
 vim.keymap.set("n", "<leader>sq", ":wq<CR>", { noremap = true, silent = true }) -- Quit with Leader + q
