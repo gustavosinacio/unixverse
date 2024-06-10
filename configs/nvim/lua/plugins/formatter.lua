@@ -1,8 +1,8 @@
 return {
-  'mhartington/formatter.nvim',
+  "mhartington/formatter.nvim",
   config = function()
     -- formatter.nvim Configuration
-    require('formatter').setup({
+    require("formatter").setup({
       logging = false,
       filetype = {
         -- File types go here ------------------------------------------------------
@@ -11,25 +11,25 @@ return {
           function()
             return {
               exe = "luafmt",
-              args = {"--indent-count", 2, "--stdin"},
-              stdin = true
+              args = { "--indent-count", 2, "--stdin" },
+              stdin = true,
             }
-          end
+          end,
         },
         ----------------------------------------------------------------------------
         javascript = {
           function()
             return {
               exe = "prettier",
-              args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
-              stdin = true
+              args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
+              stdin = true,
             }
-          end
+          end,
         },
         ----------------------------------------------------------------------------
-      }
+      },
     })
 
-    vim.keymap.set('n', '<leader>f', ':Format<CR>', { noremap = true, silent = false })
-  end
+    vim.keymap.set("n", "<leader>f", ":Format<CR>", { noremap = true, silent = false })
+  end,
 }
