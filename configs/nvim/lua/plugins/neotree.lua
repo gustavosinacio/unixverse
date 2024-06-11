@@ -8,10 +8,16 @@ return {
     "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   config = function()
+    -- If you want icons for diagnostic errors, you'll need to define them somewhere:
+    vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+    vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+    vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+    vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
+
     require("neo-tree").setup({
       enable_git_status = true,
       enable_diagnostics = true,
-
+      popup_border_style = "rounded",
       default_component_configs = {
         name = {
           trailing_slash = false,
@@ -28,28 +34,10 @@ return {
             -- Status type
             untracked = "U",
             ignored = "",
-            unstaged = "󰄱",
+            unstaged = "M",
             staged = "",
             conflict = "",
           },
-        },
-
-        file_size = {
-          enabled = true,
-          required_width = 64, -- min width of window required to show this column
-        },
-
-        type = {
-          enabled = true,
-          required_width = 122, -- min width of window required to show this column
-        },
-        last_modified = {
-          enabled = true,
-          required_width = 88, -- min width of window required to show this column
-        },
-        created = {
-          enabled = true,
-          required_width = 110, -- min width of window required to show this column
         },
         symlink_target = {
           enabled = false,
@@ -78,27 +66,15 @@ return {
       },
       filesystem = {
         filtered_items = {
-          visible = true, -- when true, they will just be displayed differently than normal items
+          -- visible = true, -- when true, they will just be displayed differently than normal items
           hide_dotfiles = false,
           hide_gitignored = false,
-          hide_hidden = false, -- only works on Windows for hidden files/directories
-          hide_by_name = {
-            --"node_modules"
-          },
-          hide_by_pattern = { -- uses glob style patterns
-            --"*.meta",
-            --"*/src/*/tsconfig.json",
-          },
-          always_show = { -- remains visible even if other settings would normally hide it
-            --".gitignored",
-          },
-          never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-            ".DS_Store",
-            "thumbs.db",
-          },
-          never_show_by_pattern = { -- uses glob style patterns
-            --".null-ls_*",
-          },
+          -- hide_hidden = false, -- only works on Windows for hidden files/directories
+          -- hide_by_name = { "node_modules" },
+          -- hide_by_pattern = { "*.meta", "*/src/*/tsconfig.json" },
+          -- always_show = { ".gitignored" }
+          -- never_show = { ".DS_Store", "thumbs.db" },
+          -- never_show_by_pattern = { [[".null-ls_*"]] },
         },
       },
     })
