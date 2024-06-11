@@ -13,14 +13,11 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +14 lua/keymaps.lua
-badd +19 README.md
-badd +0 neo-tree\ filesystem\ \[1]
+badd +11 ~/i3life/configs/nvim/lua/plugins/neotree.lua
 argglobal
 %argdel
-edit lua/keymaps.lua
+edit ~/i3life/configs/nvim/lua/plugins/neotree.lua
 argglobal
-balt README.md
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -31,13 +28,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 21 - ((20 * winheight(0) + 28) / 56)
+let s:l = 10 - ((9 * winheight(0) + 28) / 57)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 21
-normal! 055|
-lcd ~/i3life/configs/nvim
+keepjumps 10
+normal! 05|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
