@@ -7,6 +7,7 @@
 - https://github.com/jesseduffield/lazygit
 - https://github.com/wakatime/vim-wakatime
 - https://github.com/karb94/neoscroll.nvim -> Already installed, check usage. Doesn't seem to work yet
+- https://github.com/stevearc/overseer.nvim
 
 ## Peoples usage of nvim
 
@@ -16,3 +17,8 @@
 ## Vim motion plugin
 
 - https://vim.rtorr.com/
+
+## VIMdeos
+
+- https://www.youtube.com/watch?v=lWTzqPfy1gE - Vim motions begginer
+- https://www.youtube.com/watch?v=nBjEzQlJLHE - Vim motions intermediate
