@@ -17,7 +17,7 @@ vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", {})
 vim.keymap.set("n", "<leader>gc", ":DiffviewClose<CR>", {})
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", {})
 vim.keymap.set("n", "<leader>as", ":wa<CR>", { noremap = true, silent = true }) -- Save
-vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, {})
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
 vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>E", ":Neotree toggle<CR>", { noremap = true, silent = true })
 

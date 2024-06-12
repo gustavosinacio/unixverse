@@ -30,6 +30,6 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<leader>f", ":Format<CR>", { noremap = true, silent = false })
+    -- vim.keymap.set("n", "<leader>f", ":Format<CR>", { noremap = true, silent = false })
   end,
 }
