@@ -85,7 +85,7 @@ return {
       -- see `:h neo-tree-custom-commands-global`
       commands = {},
       window = {
-        position = "left",
+        position = "float",
         width = 40,
         mapping_options = {
           noremap = true,
@@ -152,34 +152,15 @@ return {
           hide_dotfiles = false,
           hide_gitignored = false,
           hide_hidden = true, -- only works on Windows for hidden files/directories
-          hide_by_name = {
-            --"node_modules"
-          },
-          hide_by_pattern = { -- uses glob style patterns
-            --"*.meta",
-            --"*/src/*/tsconfig.json",
-          },
-          always_show = { -- remains visible even if other settings would normally hide it
-            --".gitignored",
-          },
-          always_show_by_pattern = { -- uses glob style patterns
-            --".env*",
-          },
-          never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-            --".DS_Store",
-            --"thumbs.db"
-          },
-          never_show_by_pattern = { -- uses glob style patterns
-            --".null-ls_*",
-          },
+          -- hide_by_name = { "node_modules" },
+          -- hide_by_pattern = { "*.meta", "*/src/*/tsconfig.json" },
+          -- always_show = { ".gitignored" },
+          -- always_show_by_pattern = { ".env*" },
+          -- never_show = { ".DS_Store", "thumbs.db" },
+          -- never_show_by_pattern = { ".null-ls_*" },
         },
-        follow_current_file = {
-          -- This will find and focus the file in the active buffer every time
-          -- the current file is changed while the tree is open.
-          enabled = true,
-          leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
-        },
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
+        follow_current_file = { enabled = true, leave_dirs_open = false },
+        group_empty_dirs = true,
         hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
         -- in whatever position is specified in window.position
         -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -189,7 +170,6 @@ return {
         -- instead of relying on nvim autocmd events.
         window = {
           mappings = {
-            ["<bs-S>"] = "navigate_down",
             ["<bs>"] = "navigate_up",
             ["."] = "set_root",
             ["H"] = "toggle_hidden",
@@ -213,9 +193,9 @@ return {
           },
           fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
             ["<down>"] = "move_cursor_down",
-            ["<C-n>"] = "move_cursor_down",
+            ["<C-j>"] = "move_cursor_down",
             ["<up>"] = "move_cursor_up",
-            ["<C-p>"] = "move_cursor_up",
+            ["<C-k>"] = "move_cursor_up",
             -- ['<key>'] = function(state, scroll_padding) ... end,
           },
         },
@@ -224,11 +204,10 @@ return {
       },
       buffers = {
         follow_current_file = {
-          enabled = true, -- This will find and focus the file in the active buffer every time
-          --              -- the current file is changed while the tree is open.
-          leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          enabled = true,
+          leave_dirs_open = false,
         },
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
+        group_empty_dirs = true,
         show_unloaded = true,
         window = {
           mappings = {

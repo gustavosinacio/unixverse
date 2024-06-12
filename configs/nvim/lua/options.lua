@@ -24,6 +24,8 @@ vim.g.have_nerd_font = true
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.showtabline = 2
+vim.opt.sessionoptions = "curdir,folds,globals,help,tabpages,terminal,winsize"
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
