@@ -1,7 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    lazy = false,
+    lazy = true,
     config = function()
       require("mason").setup()
     end,
@@ -20,6 +20,7 @@ return {
       })
     end,
   },
+  "WhoIsSethDaniel/mason-tool-installer.nvim",
   {
     "neovim/nvim-lspconfig",
     lazy = false,

@@ -5,7 +5,6 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
-    "3rd/image.nvim",
   },
   config = function()
     -- If you want icons for diagnostic errors, you'll need to define them somewhere:
@@ -103,8 +102,8 @@ return {
           ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
           -- Read `# Preview Mode` for more information
           ["l"] = "focus_preview",
-          ["S"] = "open_split",
-          ["s"] = "open_vsplit",
+          ["s"] = "open_split",
+          ["v"] = "open_vsplit",
           -- ["S"] = "split_with_window_picker",
           -- ["s"] = "vsplit_with_window_picker",
           ["t"] = "open_tabnew",
@@ -190,6 +189,7 @@ return {
         -- instead of relying on nvim autocmd events.
         window = {
           mappings = {
+            ["<bs-S>"] = "navigate_down",
             ["<bs>"] = "navigate_up",
             ["."] = "set_root",
             ["H"] = "toggle_hidden",
