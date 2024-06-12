@@ -14,7 +14,7 @@
 - https://dev.to/kochiyama/kitty-neovim-aesthetic-dev-setup-243l
 - https://www.avni.sh/posts/developer-tools/my-development-environment/
 
-## Vim motion plugin
+## Vim motion tips
 
 - https://vim.rtorr.com/
 
@@ -22,3 +22,13 @@
 
 - https://www.youtube.com/watch?v=lWTzqPfy1gE - Vim motions begginer
 - https://www.youtube.com/watch?v=nBjEzQlJLHE - Vim motions intermediate
+
+# Vim Motions
+
+## Basics
+
+
+* go to line 78             |  => :78 
+* change inside next " =>   |  ci" (change inner ")
+
+* copy around paragraph     | yap (yank around paragrah)
