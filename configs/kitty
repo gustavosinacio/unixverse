@@ -18,10 +18,12 @@ map alt+v paste_from_clipboar
 
 
 map f5 launch --location=hsplit
+map super+shift+d launch --location=hsplit
 
 # Create a new window splitting the space used by the existing one so that
 # the two windows are placed side by side
 map f6 launch --location=vsplit
+map super+d launch --location=vsplit
 
 # Create a new window splitting the space used by the existing one so that
 # the two windows are placed side by side if the existing window is wide or
