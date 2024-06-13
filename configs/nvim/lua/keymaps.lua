@@ -13,8 +13,6 @@ print(myOS, MainMod)
 vim.keymap.set("n", "<leader>ol", ":Lazy<CR>", {})
 vim.keymap.set("n", "<leader>om", ":Mason<CR>", {})
 vim.keymap.set("n", "<leader>os", ":LspInfo<CR>", {})
-vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", {})
-vim.keymap.set("n", "<leader>gc", ":DiffviewClose<CR>", {})
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", {})
 vim.keymap.set("n", "<leader>as", ":wa<CR>", { noremap = true, silent = true }) -- Save
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
@@ -37,12 +35,12 @@ vim.keymap.set({ "i", "n" }, MainMod .. "j>", "<Esc>ddp", {})
 vim.keymap.set({ "i", "n" }, MainMod .. "k>", "<Esc>ddkP", {})
 
 -- NOTE: Tabs
-vim.api.nvim_set_keymap("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tn", ":tabn<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tn", ":tabn<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>", { noremap = true })
 -- move current tab to previous position
-vim.api.nvim_set_keymap("n", "<leader>tmh", ":-tabmove<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tmh", ":-tabmove<CR>", { noremap = true })
 -- move current tab to next position
-vim.api.nvim_set_keymap("n", "<leader>tml", ":+tabmove<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tml", ":+tabmove<CR>", { noremap = true })

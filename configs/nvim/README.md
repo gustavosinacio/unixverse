@@ -25,10 +25,13 @@
 
 # Vim Motions
 
+## Questions
+
+q. How do i search in telescope without fuzzy?
+
 ## Basics
 
+- go to line 78 | => :78
+- change inside next " => | ci" (change inner ")
 
-* go to line 78             |  => :78 
-* change inside next " =>   |  ci" (change inner ")
-
-* copy around paragraph     | yap (yank around paragrah)
+- copy around paragraph | yap (yank around paragrah)
