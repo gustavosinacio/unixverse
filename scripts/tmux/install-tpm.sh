@@ -1,7 +1,13 @@
 
-INSTALL_DIR="~/.tmux/plugins/tpm"
+INSTALL_DIR="$HOME/.tmux/plugins/tpm"
+TMUX_PLUGINS_DIR="$HOME/.tmux/plugins"
 
-if [ ! -d  $INSTALL_DIR ]; then
-  echo -e "$BRIGHT_GREEN\t install tpm$RESET"
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+echo $INSTALL_DIR
+
+if [  -d $INSTALL_DIR ]; then
+  echo "$BRIGHT_GREEN\t install tpm$RESET"
+  rm -rf $INSTALL_DIR
+  rm -rf $TMUX_PLUGINS_DIR
 fi
+
+git clone https://github.com/tmux-plugins/tpm $INSTALL_DIR

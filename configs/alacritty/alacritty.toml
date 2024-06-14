@@ -1,12 +1,11 @@
-import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
-
+import = ["~/.config/alacritty/themes/themes/catppuccin_mocha.toml"]
 live_config_reload = true
 
 [window]
 decorations = "buttonless"
 dynamic_padding = true
 opacity = 0.97
-padding = {x = 0, y = 0}
+padding = { x = 0, y = 0 }
 
 
 [font]
@@ -28,6 +27,5 @@ style = "Medium Italic"
 family = "JetBrainsMono Nerd Font"
 style = "Medium"
 
-
 [shell]
-program = "/bin/zsh"
+program = "/opt/homebrew/bin/tmux"
