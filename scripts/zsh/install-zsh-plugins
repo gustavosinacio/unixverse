@@ -40,14 +40,14 @@ else
 fi
 
 # ------------------------------------------------------------------------------
-INSTALL_FOLDER=$ZSH/custom/themes/powerlevel10k
-echo -e "\tInstalling into $INSTALL_FOLDER"
-if [ -d $INSTALL_FOLDER ]; then
-  echo -e "$BRIGHT_YELLOW\tzsh-completions already installed\t$RESET"
-else
-  echo -e "$BRIGHT_GREEN\tInstalling powerlevel10k theme\t$RESET"
-  git clone --depth 1 https://github.com/romkatv/powerlevel10k.git $INSTALL_FOLDER
-fi
+# INSTALL_FOLDER=$ZSH/custom/themes/powerlevel10k
+# echo -e "\tInstalling into $INSTALL_FOLDER"
+# if [ -d $INSTALL_FOLDER ]; then
+#   echo -e "$BRIGHT_YELLOW\tzsh-completions already installed\t$RESET"
+# else
+#   echo -e "$BRIGHT_GREEN\tInstalling powerlevel10k theme\t$RESET"
+#   git clone --depth 1 https://github.com/romkatv/powerlevel10k.git $INSTALL_FOLDER
+# fi
 # ------------------------------------------------------------------------------
 
 if [ -f $HOME/.zshrc.pre-oh-my-zsh ]; then

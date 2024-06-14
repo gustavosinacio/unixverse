@@ -9,6 +9,8 @@
 - https://github.com/karb94/neoscroll.nvim -> Already installed, check usage. Doesn't seem to work yet
 - https://github.com/stevearc/overseer.nvim
 
+- UNDOTREE PLUGIN FOR VISUAL UNDOS
+
 ## Peoples usage of nvim
 
 - https://dev.to/kochiyama/kitty-neovim-aesthetic-dev-setup-243l
@@ -35,3 +37,39 @@ q. How do i search in telescope without fuzzy?
 - change inside next " => | ci" (change inner ")
 
 - copy around paragraph | yap (yank around paragrah)
+
+- `(` sentence down
+- I insert start of line
+- A insert at end of line
+- o insert at line bellow
+- O insert at line above
+
+- diw delete inner word
+- dis delete inner sentence
+- dip delete inner paragraph
+
+- daw delete around word
+- das delete around sentence
+- dap delete around paragraph
+
+- dTa delete to 'a'
+- dTe delete to 'e' and so on...
+
+- `.` is the repeat key. Repeat any operation done
+
+- ma marks position a
+- mf marks position f
+- mg marks position g and so on..
+
+- ` is the bookmark go to
+- `a goes to mark a
+- `f goes to mark f
+- `g goes to mark g and so on...
+
+ThePrimeAgen lazy init
+
+![lazy config theprimeagen](img1.png)
+
+ThePrimeAgen plugins
+
+![lazy config theprimeagen](img2.png)

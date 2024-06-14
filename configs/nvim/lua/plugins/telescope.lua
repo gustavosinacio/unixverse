@@ -19,7 +19,7 @@ return {
       telescope.setup({
         defaults = {
           file_ignore_patterns = { "node_modules" }, -- Ignore certain directories
-          follow = true,                             -- Follow symbolic links
+          follow = true, -- Follow symbolic links
         },
         extensions = {
           live_grep_args = {

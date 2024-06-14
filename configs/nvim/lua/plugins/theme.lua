@@ -20,7 +20,7 @@ return {
         --     tritan = 0, -- Severity [0,1] for tritan (blue)
         --   },
         -- },
-        styles = {             -- Style to be applied to different syntax groups
+        styles = { -- Style to be applied to different syntax groups
           comments = "italic", -- Value is any valid attr-list value `:help attr-list`
           conditionals = "NONE",
           constants = "NONE",

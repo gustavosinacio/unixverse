@@ -7,6 +7,7 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
+  newline = true
 
   [[blocks.segments]]
     type = 'session'
@@ -19,7 +20,7 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
   [[blocks.segments]]
     type = 'path'
-    style = 'powerline'
+    style = 'accordion'
     powerline_symbol = ''
     foreground = '#ffffff'
     background = '#ff479c'
@@ -59,28 +60,6 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
       fetch_version = true
 
   [[blocks.segments]]
-    type = 'go'
-    style = 'powerline'
-    powerline_symbol = ''
-    foreground = '#111111'
-    background = '#8ED1F7'
-    template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
-
-    [blocks.segments.properties]
-      fetch_version = true
-
-  [[blocks.segments]]
-    type = 'julia'
-    style = 'powerline'
-    powerline_symbol = ''
-    foreground = '#111111'
-    background = '#4063D8'
-    template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
-
-    [blocks.segments.properties]
-      fetch_version = true
-
-  [[blocks.segments]]
     type = 'python'
     style = 'powerline'
     powerline_symbol = ''
@@ -91,41 +70,6 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     [blocks.segments.properties]
       display_mode = 'files'
       fetch_virtual_env = false
-
-  [[blocks.segments]]
-    type = 'ruby'
-    style = 'powerline'
-    powerline_symbol = ''
-    foreground = '#ffffff'
-    background = '#AE1401'
-    template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
-
-    [blocks.segments.properties]
-      display_mode = 'files'
-      fetch_version = true
-
-  [[blocks.segments]]
-    type = 'azfunc'
-    style = 'powerline'
-    powerline_symbol = ''
-    foreground = '#ffffff'
-    background = '#FEAC19'
-    template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
-
-    [blocks.segments.properties]
-      display_mode = 'files'
-      fetch_version = false
-
-  [[blocks.segments]]
-    type = 'aws'
-    style = 'powerline'
-    powerline_symbol = ''
-    foreground = '#ffffff'
-    background_templates = ['{{if contains "default" .Profile}}#FFA400{{end}}', '{{if contains "jan" .Profile}}#f1184c{{end}}']
-    template = '  {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} '
-
-    [blocks.segments.properties]
-      display_default = false
 
   [[blocks.segments]]
     type = 'root'
@@ -157,6 +101,12 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     [blocks.segments.properties]
       always_enabled = true
 
+  [transient_prompt]
+    foreground = "#00897b"
+    background = "transparent"
+    template = "   "
+
+
 [[blocks]]
   type = 'rprompt'
 
@@ -165,7 +115,7 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     style = 'plain'
     foreground = '#ffffff'
     background = '#0077c2'
-    template = '<#0077c2,transparent></>  {{ .Name }} <transparent,#0077c2></>'
+    template = '<#0077c2,transparent></>   <transparent,#0077c2></>'
 
   [[blocks.segments]]
     type = 'ytm'

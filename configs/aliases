@@ -42,7 +42,7 @@ alias dcuf="docker-compose up --force-recreate"
 alias watchman-res="watchman watch-del $(pwd); watchman watch-project $(pwd)"
 
 # Ranger -----
-alias r="ranger"
+alias rr="ranger"
 
 alias echo="echo -e"
 
