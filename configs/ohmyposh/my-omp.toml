@@ -1,0 +1,152 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+console_title_template = '{{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'diamond'
+    foreground = '#011627'
+    background = '#FEF5ED'
+    trailing_diamond = '<#FEF5ED,transparent></>'
+    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}}'
+
+    [blocks.segments.properties]
+      alpine = ' '
+      arch = ' '
+      centos = ' '
+      debian = ' '
+      elementary = ' '
+      fedora = ' '
+      gentoo = ' '
+      linux = ' '
+      macos = ' '
+      manjaro = ' '
+      mint = ' '
+      opensuse = ' '
+      raspbian = ' '
+      ubuntu = ' '
+      windows = ' '
+
+  [[blocks.segments]]
+    type = 'shell'
+    style = 'diamond'
+    foreground = '#011627'
+    background = '#FEF5ED'
+    leading_diamond = '<transparent,#FEF5ED></>'
+    trailing_diamond = '<#FEF5ED,transparent></>'
+    template = '   '
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#516BEB'
+    leading_diamond = '<transparent,#516BEB></>'
+    trailing_diamond = '<transparent,#516BEB></>'
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'diamond'
+    foreground = '#d6deeb'
+    background = '#575656'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .FormattedMs }} '
+
+    [blocks.segments.properties]
+      style = 'roundrock'
+      threshold = 0.0
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'diamond'
+    foreground = '#17D7A0'
+    background = '#575656'
+    foreground_templates = ['{{ if gt .Code 0 }}#e91e63{{ end }}']
+    leading_diamond = '<transparent,#575656></>'
+    trailing_diamond = '<#575656,transparent></> '
+    template = '  '
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'sysinfo'
+    style = 'diamond'
+    foreground = '#011627'
+    background = '#17D7A0'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = '   {{ round .PhysicalPercentUsed .Precision }}% | {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB   '
+
+    [blocks.segments.properties]
+      branch_icon = ' '
+      fetch_stash_count = true
+      fetch_status = true
+      fetch_upstream_icon = true
+      fetch_worktree_count = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    template = '╭─'
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'plain'
+    template = ' {{ .CurrentDate | date .Format }} |'
+
+    [blocks.segments.properties]
+      time_format = '15:04'
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'plain'
+    template = '  '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      folder_icon = ' '
+      folder_separator_icon = '  '
+      home_icon = ' '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    template = '╰─ '
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+
+
+[transient_prompt]
+  foreground = '#FEF5ED'
+  background = 'transparent'
+  template = ' '

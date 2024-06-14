@@ -105,10 +105,10 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     foreground = "#00897b"
     background = "transparent"
     template = "   "
+    
 
-
-[[blocks]]
-  type = 'rprompt'
+# [[blocks]]
+  # type = 'rprompt'
 
   [[blocks.segments]]
     type = 'shell'
@@ -154,3 +154,8 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     leading_diamond = ''
     trailing_diamond = ''
     template = ' {{ .CurrentDate | date .Format }} '
+
+  [[blocks.segments]]
+    type = "text"
+    style = "plain"
+    template = "\n "
