@@ -196,7 +196,9 @@ return {
       lspconfig.taplo.setup({
         capabilities = capabilities,
       })
-
+      lspconfig.powershell_es.setup({
+        capabilities = capabilities,
+      })
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
       --  other tools, you can run
