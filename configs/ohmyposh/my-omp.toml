@@ -39,7 +39,7 @@ console_title_template = '{{ .Folder }}'
     foreground = '#011627'
     background = '#FEF5ED'
     leading_diamond = '<transparent,#FEF5ED></>'
-    trailing_diamond = '<#FEF5ED,transparent></>'
+    trailing_diamond = '<#FEF5ED,transparent></><transparent,#516BEB> </>'
     template = '   '
 
   [[blocks.segments]]
@@ -47,16 +47,26 @@ console_title_template = '{{ .Folder }}'
     style = 'diamond'
     foreground = '#ffffff'
     background = '#516BEB'
-    leading_diamond = '<transparent,#516BEB></>'
-    trailing_diamond = '<transparent,#516BEB></>'
     template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+    # background_templates = [
+    #   "{{ if or (.Working.Changed) (.Staging.Changed) }}#516BEB{{ end }}",
+    #   "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#FFCC80{{ end }}",
+    #   "{{ if gt .Ahead 0 }}#17D7A0{{ end }}",
+    #   "{{ if gt .Behind 0 }}#17D7A0{{ end }}"
+    # ]
+
+    [blocks.segments.properties]
+      branch_max_length = 25.0
+      fetch_stash_count = true
+      fetch_status = true
+      fetch_upstream_icon = true
 
   [[blocks.segments]]
     type = 'executiontime'
     style = 'diamond'
     foreground = '#d6deeb'
     background = '#575656'
-    leading_diamond = ''
+    leading_diamond = '<transparent,#516BEB> </><#575656,transparent></>'
     trailing_diamond = ''
     template = ' {{ .FormattedMs }} '
 
@@ -67,7 +77,7 @@ console_title_template = '{{ .Folder }}'
   [[blocks.segments]]
     type = 'status'
     style = 'diamond'
-    foreground = '#17D7A0'
+    foreground = '#ffffff'
     background = '#575656'
     foreground_templates = ['{{ if gt .Code 0 }}#e91e63{{ end }}']
     leading_diamond = '<transparent,#575656></>'
@@ -97,6 +107,18 @@ console_title_template = '{{ .Folder }}'
       fetch_status = true
       fetch_upstream_icon = true
       fetch_worktree_count = true
+
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#3Ca35E'
+    template = '  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
+
+   
+
 
 [[blocks]]
   type = 'prompt'
