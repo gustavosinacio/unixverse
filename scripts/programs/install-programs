@@ -21,7 +21,7 @@ echo "--------------------------------------------------------------------------
 echo "This program will attempt to install all these programs:"
 
 echo -e "$BRIGHT_GREEN"
-bat $FILE_PATH
+cat $FILE_PATH
 echo -e "$RESET"
 
 # read -p "Installation will proceed without further confirmations. Do you want to continue?(Y/n) " user_input
@@ -31,6 +31,7 @@ echo -e "$RESET"
 # Suported installers
 # ---------------------------------------------------------------------------
 INSTALLERS=(
+  "yay"
 	"pacman"
 	"apt"
 )
@@ -40,7 +41,8 @@ INSTALLERS=(
 # ---------------------------------------------------------------------------
 declare -A INSTALLERS_FLAGS
 
-INSTALLERS_FLAGS["pacman"]="-S --noconfirm"
+INSTALLERS_FLAGS["pacman"]="-S --noconfirm --needed"
+INSTALLERS_FLAGS["yay"]="-S --noconfirm --needed"
 INSTALLERS_FLAGS["apt"]="install" #apt
 
 # ---------------------------------------------------------------------------
@@ -54,7 +56,7 @@ for option in "${INSTALLERS[@]}"; do
 done
 FLAGS="${INSTALLERS_FLAGS[$option]}"
 
-if [ $INSTALLER eq "$pacman" ]; then
+if [ $INSTALLER eq "pacman" || $INSTALLER eq "yay" ]; then
 	$INSTALLER -Syu
 fi
 
@@ -65,12 +67,12 @@ if [ -f $FILE_PATH ]; then
 	while IFS= read -r line; do
 		program=$(echo "$line" | sed 's/#.*//' | xargs)
 
-		echo -e "\n\tInstalling $program...\n"
+		echo -e "\n\tInstalling $program with $INSTALLER...\n"
 
 		if sudo $INSTALLER $FLAGS "$program" &>/dev/null; then
-			echo -e "$BRIGHT_GREEN\t$program installed successfully$RESET" | tee -a "$LOG_FILE"
+			echo -e "$BRIGHT_GREEN\t-- $program installed successfully$RESET" | tee -a "$LOG_FILE"
 		else
-			echo -e "$BRIGHT_RED\tFailed to install $program$RESET" | tee -a "$LOG_FILE"
+			echo -e "$BRIGHT_RED\t-- Failed to install $program$RESET" | tee -a "$LOG_FILE"
 		fi
 
 	done <"$PROGRAMS_FILE"
