@@ -1,0 +1,2 @@
+sudo pacman -S sway swaylock swayidle swaybg wmenu foot
+
