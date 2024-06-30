@@ -1,19 +1,20 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-HOME_CONFIG=$HOME/.config
+
+
+if [ ! -d $HOME/.config/alacritty ]; then
+  mkdir $HOME/.config/alacritty
+fi
+
 
 # Create an array with my link pairs
 configs=(
-  # "$I3_HOME/configs/i3.config $HOME_CONFIG/i3/config"
-  # "$I3_HOME/configs/i3blocks.config $HOME_CONFIG/i3blocks/config"
-  # "$SCRIPT_DIR/configs/kitty $HOME_CONFIG/kitty/kitty.conf"
-  # "$SCRIPT_DIR/configs/hypr/hyprland.conf $HOME_CONFIG/hypr/hyprland.conf"
-  # "$SCRIPT_DIR/configs/hypr/hyprpaper $HOME_CONFIG/hypr/hyprpaper.conf"
-  # "$SCRIPT_DIR/configs/hypr/hyprlock $HOME_CONFIG/hypr/hyprlock.conf"
-  "$SCRIPT_DIR/configs/ranger $HOME_CONFIG"
-  "$SCRIPT_DIR/configs/nvim $HOME_CONFIG"
-  "$SCRIPT_DIR/configs/zsh/zshrc $HOME/.zshrc"
+  "$HOME/dotfiles/sway.conf $HOME/.config/sway/conf"
+  "$HOME/dotfiles/rc.conf $HOME/.config/ranger/"
+  "$HOME/dotfiles/nvim $HOME/.config/"
+  "$HOME/dotfiles/.zshrc $HOME/.zshrc"
+  "$HOME/dotfiles/alacritty.toml $HOME/.config/alacritty/"
 )
 
 # Iterate through that array and pass pair to the script

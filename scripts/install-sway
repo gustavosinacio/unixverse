@@ -1,1 +1,1 @@
-sudo pacman -S sway swaylock swayidle swaybg wmenu dmenu foot
+sudo pacman -S --needed sway swaylock swayidle swaybg wmenu dmenu foot rofi wofi

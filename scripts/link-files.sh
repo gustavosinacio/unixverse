@@ -4,10 +4,6 @@ if [ -z "$1" ] || [ -z "$2" ]; then
   exit 1
 fi
 
-if [ ! -f $1 ]; then
-  echo -e "file $1 not found"
-  exit 1
-fi
 
 ORIGIN_PATH=$(realpath $1) >/dev/null
 IS_LINK=$(readlink $2)
