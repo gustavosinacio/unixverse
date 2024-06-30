@@ -5,7 +5,6 @@
 echo -e ""
 
 # ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
 if [ -d ${ZSH}/custom/plugins/zsh-autosuggestions ]; then
   echo -e "$BRIGHT_YELLOW\tzsh-autosuggestions already installed\t$RESET"
 else
@@ -39,23 +38,25 @@ else
     ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 fi
 
-# ------------------------------------------------------------------------------
-# INSTALL_FOLDER=$ZSH/custom/themes/powerlevel10k
-# echo -e "\tInstalling into $INSTALL_FOLDER"
-# if [ -d $INSTALL_FOLDER ]; then
-#   echo -e "$BRIGHT_YELLOW\tzsh-completions already installed\t$RESET"
-# else
-#   echo -e "$BRIGHT_GREEN\tInstalling powerlevel10k theme\t$RESET"
-#   git clone --depth 1 https://github.com/romkatv/powerlevel10k.git $INSTALL_FOLDER
-# fi
-# ------------------------------------------------------------------------------
-
 if [ -f $HOME/.zshrc.pre-oh-my-zsh ]; then
   rm $HOME/.zshrc
   mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 fi
 
 echo ""
+
+#-------
+
+if [ ! -d $HOME/bin ]; then 
+  mkdir $HOME/bin
+fi
+
+if [ ! -f $HOME/bin/oh-my-posh ]; then 
+  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+else
+  echo -e "\tOh-my-posh is arealdy install in $HOME/bin"
+fi
+
 
 # Missing ---
 # zsh-autocomplete
