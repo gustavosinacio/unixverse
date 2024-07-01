@@ -1,1 +1,11 @@
-sudo pacman -S --needed sway swaylock swayidle swaybg wmenu dmenu foot rofi wofi
+sudo pacman -S --needed \
+sway \
+swaylock \
+swayidle \
+swaybg \
+wmenu \
+dmenu \
+foot \
+rofi \
+wofi \
+ttf-font-awesome
