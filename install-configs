@@ -10,7 +10,7 @@ fi
 
 # Create an array with my link pairs
 configs=(
-  "$HOME/dotfiles/sway.conf $HOME/.config/sway/conf"
+  "$HOME/dotfiles/sway.config $HOME/.config/sway/config"
   "$HOME/dotfiles/rc.conf $HOME/.config/ranger/"
   "$HOME/dotfiles/nvim $HOME/.config/"
   "$HOME/dotfiles/.zshrc $HOME/.zshrc"
