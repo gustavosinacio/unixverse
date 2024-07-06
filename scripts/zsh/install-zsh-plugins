@@ -38,6 +38,15 @@ else
     ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 fi
 
+# ------------------------------------------------------------------------------
+if [ -d ${ZSH}/custom/plugins/zsh-vi-mode ]; then
+  echo -e "$BRIGHT_YELLOW\tzsh-vi-mode already installed\t$RESET"
+else
+  echo -e "$BRIGHT_GREEN\tInstalling zsh-vi-mode\t$RESET"
+  git clone https://github.com/jeffreytse/zsh-vi-mode \
+    $ZSH_CUSTOM/plugins/zsh-vi-mode
+fi
+
 if [ -f $HOME/.zshrc.pre-oh-my-zsh ]; then
   rm $HOME/.zshrc
   mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
