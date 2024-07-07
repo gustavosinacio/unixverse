@@ -1,6 +1,8 @@
 #!/bin/bash
 
 git_paths=""
+# GREEN='\033[0;32m'
+# NC='\033[0m' # No Color
 
 # Check if at least one path is provided
 if [ $# -eq 0 ]; then
@@ -31,11 +33,21 @@ for repo_path in "$@"; do
   remote_branch="origin/$local_branch"
   num_commits_to_push=$(git rev-list --count $remote_branch..$local_branch)
 
-  dirname=$(basename $repo_path)
-  git_paths="$git_paths ${dirname:0:3}  $num_files_altered $num_commits_to_push "
+  if [[ "$num_commits_to_push" -ne "0" || "$num_files_altered" -ne "0" ]]; then
+    dirname=$(basename $repo_path)
+    git_paths="$git_paths ${GREEN}${dirname:0:3}${NC}"
+  fi
+
+  if [ "$num_commits_to_push" -ne "0" ]; then
+    git_paths="$git_paths $num_commits_to_push"
+  fi
+
+  if [ "$num_files_altered" -ne "0" ]; then
+    git_paths="$git_paths  $num_files_altered"
+  fi
 done
 
 # git_paths=$(echo "$git_paths" | sed 's/..$/  /')
 
-echo -e "$git_paths"
+echo -e "$git_paths "
 
