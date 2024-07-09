@@ -12,7 +12,7 @@ fi
 
 for repo_path in "$@"; do
   # Navigate to the specified path
-  cd "$repo_path" || {
+  cd "$repo_path" >/dev/null 2>&1 || {
     git_paths="$git_paths !invalid path"
     continue
   }
