@@ -10,15 +10,17 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-
 for repo_path in "$@"; do
   # Navigate to the specified path
-  cd "$repo_path" || { echo " "; exit 1; }
+  cd "$repo_path" || {
+    git_paths="$git_paths !invalid path"
+    continue
+  }
 
   # Check if the current directory is a git repository
-  if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-    echo "Not a git repository"
-    exit 1
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    git_paths="$git_paths  "
+    continue
   fi
 
   # Get the number of altered (modified, added, deleted) files
@@ -49,5 +51,4 @@ done
 
 # git_paths=$(echo "$git_paths" | sed 's/..$/  /')
 
-echo -e "$git_paths "
-
+echo -e "$git_paths" | xargs
