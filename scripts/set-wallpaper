@@ -1,5 +1,0 @@
-#!/bin/bash
-
-hyprctl hyprpaper unload all
-hyprctl hyprpaper preload "~/i3life/configs/wall.jpg"
-hyprctl hyprpaper wallpaper ",~/i3life/configs/wall.jpg"

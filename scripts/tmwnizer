@@ -16,16 +16,16 @@ if [[ -z $selected ]]; then
 fi
 
 session_name=$(tmux display-message -p "#S")
-selected_name=$(basename $selected)
+window_name=$(basename $selected)
 
 # Run tmux  on selected name if tmux is not running
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  tmux new-session -s $selected_name -c $selected
+  tmux new-session -s $window_name -c $selected
   exit 0
 fi
 
-if ! tmux has-session -t=$session_name:$selected_name 2>/dev/null; then
-  tmux neww -dn $selected_name -c $selected
+if ! tmux has-session -t=$session_name:$window_name 2>/dev/null; then
+  tmux neww -dn $window_name -c $selected
 fi
 
-tmux -2 select-window -t $session_name:$selected_name
+tmux -2 select-window -t $session_name:$window_name
