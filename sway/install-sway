@@ -8,4 +8,9 @@ dmenu \
 foot \
 rofi \
 wofi \
-ttf-font-awesome
+ttf-font-awesome \
+ttf-sourcecodepro-nerd
+
+sudo pkgfile --update
+
+./install-audio.sh
