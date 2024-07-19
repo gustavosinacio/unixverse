@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 
+source $HOME/dotfiles/working-dirs.sh
+
 if [[ $# -eq 1 ]]; then
-  selected=$1
+	selected=$1
 else
-  selected=$(find \
-    ~/workhub \
-    ~/github \
-    ~/dotfiles \
-    ~/i3life \
-    -mindepth 0 -maxdepth 1 -type d | fzf)
+	selected=$(
+		find "${WORKING_DIRS[@]}" -mindepth 0 -maxdepth 1 -type d | fzf
+	)
 fi
 
 if [[ -z $selected ]]; then
-  exit 0
+	exit 0
 fi
 
 session_name=$(tmux display-message -p "#S")
@@ -20,12 +19,12 @@ window_name=$(basename $selected)
 
 # Run tmux  on selected name if tmux is not running
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  tmux new-session -s $window_name -c $selected
-  exit 0
+	tmux new-session -s $window_name -c $selected
+	exit 0
 fi
 
 if ! tmux has-session -t=$session_name:$window_name 2>/dev/null; then
-  tmux neww -dn $window_name -c $selected
+	tmux neww -dn $window_name -c $selected
 fi
 
 tmux -2 select-window -t $session_name:$window_name
