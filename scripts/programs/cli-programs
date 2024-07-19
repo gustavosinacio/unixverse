@@ -1,20 +1,24 @@
-base-devel              # basic evelopment libs
-pkgfile                 # search for lib that owns the command
-git                     # whell...
-ranger                  # best file manager on terminal
-neofetch                # system information
-zsh                     # modern terminal
-tldr                    # Commands cheat sheet
-fzf                     # fuzzy finder
-curl                    # execute requests
-htop                    # cli task manager
-fd                      # alternative to find command
-ripgrep                 # better grep
-bat                     # better cat
-lsd                     # better ls
-eza                     # also better ls
-nvim                    # the best terminal editor
-zsh-autocomplete        # autocomplete for zsh
-archlinux-keyring       # keyring for archlinux
-ttf-jetbrains-mono-nerd # nerd font from jetbrains
-fzf                     # fuzzy finder
+#!/bin/bash
+
+yay -S --needed \
+  base-devel \
+  pkgfile \
+  git \
+  ranger \
+  neofetch \
+  zsh \
+  tldr \
+  fzf \
+  curl \
+  htop \
+  fd \
+  ripgrep \
+  bat \
+  lsd \
+  eza \
+  nvim \
+  ttf-jetbrains-mono-nerd \
+  fzf \
+  tmux \
+  lazygit \
+  ttf-sourcecodepro-nerd

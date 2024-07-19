@@ -4,9 +4,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Create an array with my link pairs
 configs=(
-  "$SCRIPT_DIR/configs/gitconfig $HOME/.gitconfig"
-  "$SCRIPT_DIR/configs/aliases $HOME/.aliases"
-  "$SCRIPT_DIR/configs/colors $HOME/.colors"
+  "$HOME/dotfiles/.gitconfig $HOME/.gitconfig"
+  "$HOME/dotfiles/.aliases.sh $HOME/.aliases"
 )
 
 # Iterate through that array and pass pair to the script
@@ -17,5 +16,3 @@ echo ""
 for pair in "${configs[@]}"; do
   sh $SCRIPT_DIR/scripts/link-files.sh $pair
 done
-
-

@@ -32,8 +32,8 @@ echo -e "$RESET"
 # ---------------------------------------------------------------------------
 INSTALLERS=(
   "yay"
-	"pacman"
-	"apt"
+  "pacman"
+  "apt"
 )
 
 # ---------------------------------------------------------------------------
@@ -49,35 +49,35 @@ INSTALLERS_FLAGS["apt"]="install" #apt
 # Find which installer is available
 # ---------------------------------------------------------------------------
 for option in "${INSTALLERS[@]}"; do
-	if command -v "$option" &>/dev/null; then
-		INSTALLER=$option
-		break
-	fi
+  if command -v "$option" &>/dev/null; then
+    INSTALLER=$option
+    break
+  fi
 done
 FLAGS="${INSTALLERS_FLAGS[$option]}"
 
-if [ $INSTALLER eq "pacman" || $INSTALLER eq "yay" ]; then
-	$INSTALLER -Syu
+if [ $INSTALLER eq "pacman" ] || [ $INSTALLER eq "yay" ]; then
+  $INSTALLER -Syu
 fi
 
 # ---------------------------------------------------------------------------
 # Iterate through programs and install
 # ---------------------------------------------------------------------------
 if [ -f $FILE_PATH ]; then
-	while IFS= read -r line; do
-		program=$(echo "$line" | sed 's/#.*//' | xargs)
+  while IFS= read -r line; do
+    program=$(echo "$line" | sed 's/#.*//' | xargs)
 
-		echo -e "\n\tInstalling $program with $INSTALLER...\n"
+    echo -e "\n\tInstalling $program with $INSTALLER...\n"
 
-		if sudo $INSTALLER $FLAGS "$program" &>/dev/null; then
-			echo -e "$BRIGHT_GREEN\t-- $program installed successfully$RESET" | tee -a "$LOG_FILE"
-		else
-			echo -e "$BRIGHT_RED\t-- Failed to install $program$RESET" | tee -a "$LOG_FILE"
-		fi
+    if sudo $INSTALLER $FLAGS "$program" &>/dev/null; then
+      echo -e "$BRIGHT_GREEN\t-- $program installed successfully$RESET" | tee -a "$LOG_FILE"
+    else
+      echo -e "$BRIGHT_RED\t-- Failed to install $program$RESET" | tee -a "$LOG_FILE"
+    fi
 
-	done <"$PROGRAMS_FILE"
+  done <"$PROGRAMS_FILE"
 else
-	echo "File $BRIGHT_RED'$PROGRAMS_FILE' not found"
+  echo "File $BRIGHT_RED'$PROGRAMS_FILE' not found"
 fi
 # ---------------------------------------------------------------------------
 #
