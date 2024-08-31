@@ -1,0 +1,9 @@
+#!/bin/bash
+
+./scripts/programs/arch-programs
+./scripts/zsh/install-oh-my-zsh
+./scripts/zsh/install-zsh-plugins
+
+./install-aliases
+./install-configs
+./install-tmux-config

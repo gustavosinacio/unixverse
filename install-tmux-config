@@ -6,4 +6,8 @@ mkdir -p ~/.config/tmux
 
 sh $SCRIPT_DIR/scripts/link-files.sh $HOME/dotfiles/tmux.conf $HOME/.config/tmux/tmux.conf
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ -d ${HOME}/.tmux/plugins/tpm ]; then
+  echo "tpm already installed"
+else
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
