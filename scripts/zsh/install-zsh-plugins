@@ -44,7 +44,7 @@ if [ -d ${ZSH}/custom/plugins/zsh-vi-mode ]; then
 else
   echo -e "$BRIGHT_GREEN\tInstalling zsh-vi-mode\t$RESET"
   git clone https://github.com/jeffreytse/zsh-vi-mode \
-    $ZSH_CUSTOM/plugins/zsh-vi-mode
+    ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-vi-mode
 fi
 
 if [ -f $HOME/.zshrc.pre-oh-my-zsh ]; then
@@ -56,16 +56,15 @@ echo ""
 
 #-------
 
-if [ ! -d $HOME/bin ]; then 
+if [ ! -d $HOME/bin ]; then
   mkdir $HOME/bin
 fi
 
-if [ ! -f $HOME/bin/oh-my-posh ]; then 
+if [ ! -f $HOME/bin/oh-my-posh ]; then
   curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
 else
   echo -e "\tOh-my-posh is arealdy install in $HOME/bin"
 fi
-
 
 # Missing ---
 # zsh-autocomplete

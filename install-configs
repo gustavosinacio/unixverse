@@ -2,15 +2,12 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-
 if [ ! -d $HOME/.config/alacritty ]; then
-  mkdir $HOME/.config/alacritty
+  mkdir -p $HOME/.config/alacritty
 fi
-
 
 # Create an array with my link pairs
 configs=(
-  "$HOME/dotfiles/sway.config $HOME/.config/sway/config"
   "$HOME/dotfiles/rc.conf $HOME/.config/ranger/"
   "$HOME/dotfiles/nvim $HOME/.config/"
   "$HOME/dotfiles/.zshrc $HOME/.zshrc"
