@@ -12,6 +12,7 @@ configs=(
   "$HOME/dotfiles/nvim $HOME/.config/"
   "$HOME/dotfiles/.zshrc $HOME/.zshrc"
   "$HOME/dotfiles/alacritty.toml $HOME/.config/alacritty/"
+  "$HOME/dotfiles/alacritty-shell.toml $HOME/.config/alacritty/alacritty-shell.toml"
 )
 
 # Iterate through that array and pass pair to the script
