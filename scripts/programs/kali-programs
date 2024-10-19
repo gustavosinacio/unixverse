@@ -1,0 +1,12 @@
+#!/bin/bash
+
+yay -S --needed \
+  net-tools \
+  bind \
+  dig \
+  wireless_tools \
+  proxychains \
+  whois \
+  torbrowser-launcher \
+  firefox \
+  wireshark-qt
