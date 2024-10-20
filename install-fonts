@@ -1,0 +1,11 @@
+#!/bin/bash
+
+sudo wget -P /usr/local/share/fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SourceCodePro.zip
+
+cd /usr/local/share/fonts/
+
+sudo unzip SourceCodePro.zip
+
+sudo rm SourceCodePro.zip
+
+fc-cache -fv
