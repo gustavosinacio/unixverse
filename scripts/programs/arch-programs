@@ -22,4 +22,5 @@ yay -S --needed \
   fzf \
   tmux \
   lazygit \
+  net-tools \
   ttf-sourcecodepro-nerd
