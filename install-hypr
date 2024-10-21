@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+sh $SCRIPT_DIR/scripts/programs/hypr-programs
+
+# Create an array with my link pairs
+configs=(
+  "$HOME/dotfiles/hyperland.conf $HOME/.config/hypr/hyprland.conf"
+  "$HOME/dotfiles/waybar $HOME/.config/waybar"
+)
+
+echo ""
+
+for pair in "${configs[@]}"; do
+  sh $SCRIPT_DIR/scripts/link-files.sh $pair
+done
