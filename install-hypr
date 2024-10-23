@@ -7,6 +7,7 @@ sh $SCRIPT_DIR/scripts/programs/hypr-programs
 # Create an array with my link pairs
 configs=(
   "$HOME/dotfiles/hyperland.conf $HOME/.config/hypr/hyprland.conf"
+  "$HOME/dotfiles/hyperpaper.conf $HOME/.config/hypr/hyprpaper.conf"
   "$HOME/dotfiles/waybar $HOME/.config/waybar"
 )
 
