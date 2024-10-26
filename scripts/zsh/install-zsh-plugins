@@ -56,12 +56,18 @@ echo ""
 
 #-------
 
-if [ ! -d $HOME/bin ]; then
-  mkdir $HOME/bin
+read -p "Do you want to install oh-my-posh? (y/n): " answer
+
+if [[ "$answer" != "y" && "$answer" != "yes" ]]; then
+  echo "Installation done."
+  exit 0
 fi
 
+mkdir -p $HOME/bin
+
 if [ ! -f $HOME/bin/oh-my-posh ]; then
-  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+  echo "installing oh my posh"
+  # curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
 else
   echo -e "\tOh-my-posh is arealdy install in $HOME/bin"
 fi

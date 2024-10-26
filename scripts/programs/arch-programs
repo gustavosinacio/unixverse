@@ -17,10 +17,14 @@ yay -S --needed \
   bat \
   lsd \
   eza \
-  nvim \
+  neovim \
   ttf-jetbrains-mono-nerd \
   fzf \
   tmux \
   lazygit \
   net-tools \
+  brave \
+  samba \
+  avahi \
+  coppwr \
   ttf-sourcecodepro-nerd
