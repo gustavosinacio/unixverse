@@ -13,4 +13,5 @@ yay -S --needed \
   hypridle \
   hyprlock \
   wl-clipboard \
+  yazi \
   alacritty
