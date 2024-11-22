@@ -6,8 +6,14 @@ sh $SCRIPT_DIR/scripts/programs/hypr-programs
 
 # Create an array with my link pairs
 configs=(
-  "$HOME/dotfiles/hypr/* $HOME/.config/hypr/"
+  "$HOME/dotfiles/hypr/hyprland.conf $HOME/.config/hypr/hyprland.conf"
+  "$HOME/dotfiles/hypr/hypridle.conf $HOME/.config/hypr/hypridle.conf"
+  "$HOME/dotfiles/hypr/hyprlock.conf $HOME/.config/hypr/hyprlock.conf"
+  "$HOME/dotfiles/hypr/hyprpaper.conf $HOME/.config/hypr/hyprpaper.conf"
+  "$HOME/dotfiles/hypr/xdph.conf $HOME/.config/hypr/xdph.conf"
+  "$HOME/dotfiles/hypr/mocha.conf $HOME/.config/hypr/mocha.conf"
   "$HOME/dotfiles/waybar/windows $HOME/.config/waybar"
+  "$HOME/dotfiles/wofi/style.css $HOME/.config/wofi/style.css"
 )
 
 echo ""

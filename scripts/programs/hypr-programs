@@ -12,4 +12,5 @@ yay -S --needed \
   hyprpicker \
   hypridle \
   hyprlock \
+  wl-clipboard \
   alacritty
