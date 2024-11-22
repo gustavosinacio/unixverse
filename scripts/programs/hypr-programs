@@ -5,4 +5,11 @@ yay -S --needed \
   wofi \
   kitty \
   ttf-font-awesome \
+  mako \
+  xdg-desktop-portal-hyprland \
+  grim \
+  slurp \
+  hyprpicker \
+  hypridle \
+  hyprlock \
   alacritty
