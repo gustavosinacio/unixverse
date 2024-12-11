@@ -2,6 +2,7 @@
 
 yay -S --needed \
   alacritty \
+  inotify-tools \
   base-devel \
   pkgfile \
   git \
