@@ -28,4 +28,5 @@ yay -S --needed \
   samba \
   avahi \
   coppwr \
+  btop \
   ttf-sourcecodepro-nerd
