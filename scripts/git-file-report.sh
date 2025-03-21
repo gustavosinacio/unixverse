@@ -1,13 +1,16 @@
 #!/bin/bash
 
+# Source the git-status-folders.sh file to get the GIT_STATUS_DIRS array
+source ~/dotfiles/git-status-folders.sh
+
 git_paths=""
 # GREEN='\033[0;32m'
 # NC='\033[0m' # No Color
 
-# Check if at least one path is provided
+# Check if arguments are provided; if not, use GIT_STATUS_DIRS
 if [ $# -eq 0 ]; then
-  echo "Usage: $0 <path_to_git_repo1> [<path_to_git_repo2> ...]"
-  exit 1
+  # Use the directories from GIT_STATUS_DIRS
+  set -- "${GIT_STATUS_DIRS[@]}"
 fi
 
 for repo_path in "$@"; do
