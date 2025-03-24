@@ -12,5 +12,15 @@ brew install \
   yazi \
   fd \
   ripgrep \
-  alacritty
+  ffmpeg \
+  sevenzip \
+  jq \
+  poppler \
+  fd \
+  ripgrep \
+  fzf \
+  zoxide \
+  imagemagick \
+  font-symbols-only-nerd-font
 
+alacritty
