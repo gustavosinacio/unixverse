@@ -5,6 +5,7 @@ source ~/dotfiles/git-status-folders.sh
 
 num_files_altered=0
 num_commits_to_push=0
+num_repos_with_changes=0
 git_paths=""
 # GREEN='\033[0;32m'
 # NC='\033[0m' # No Color
@@ -27,13 +28,19 @@ for repo_path in "$@"; do
   fi
 
   # Get the number of altered (modified, added, deleted) files
-  num_files_altered=$((num_files_altered + $(git status --porcelain | wc -l | xargs)))
+  repo_files=$(git status --porcelain | wc -l | xargs)
+  num_files_altered=$((num_files_altered + repo_files))
 
   # Compare the local and remote branches
   local_branch=$(git rev-parse --abbrev-ref HEAD)
   remote_branch="origin/$local_branch"
-  num_commits_to_push=$((num_commits_to_push + $(git rev-list --count $remote_branch..$local_branch)))
+  repo_commits=$(git rev-list --count $remote_branch..$local_branch)
+  num_commits_to_push=$((num_commits_to_push + repo_commits))
 
+  # Increment repos with changes counter if either files are altered or commits need pushing
+  if [ "$repo_files" -gt 0 ] || [ "$repo_commits" -gt 0 ]; then
+    num_repos_with_changes=$((num_repos_with_changes + 1))
+  fi
 done
 
-echo -e " $num_files_altered  $num_commits_to_push" | xargs
+echo -e "$num_repos_with_changes  $num_files_altered  $num_commits_to_push" | xargs
